@@ -1,0 +1,169 @@
+/*=S 通配符，全部属性设置*/
+*{
+    margin:0;
+}
+
+/*=S body attributes set*/
+body{
+    background-color: #2F2F2F;
+    height:auto;
+    width: auto;
+}
+
+/*外敷类attributes set*/
+.wrapper{
+    max-width:900px;
+    margin:20px auto;
+}
+
+/*外敷类对象li attributes set*/
+.wrapper li{
+    position: relative;
+    width: 180px;
+    height: 180px;
+    list-style:none;
+    margin: 5px;
+    display: inline-block;
+    perspective: 300px;
+}
+/*picture box attributes set*/
+.picBox{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% -90px;
+    animation: 200ms ease-out 0ms 1 normal forwards;
+}
+
+/*show hide类 same attributes set*/
+.show,
+.hide{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/*hide类special attributes set*/
+.hide{
+    color:#fff;
+    background-color:#000;
+    text-align:center;
+    line-height:180px;
+    transform: translate3d(0,0,-1px);
+    /* 3D空间内移动一个元素的位置 */
+}
+
+/*=S .in-top .out-top设置属性，动画*/
+/*从上面进上面出hide类设置*/
+.in-top .hide,
+.out-top .hide
+{
+    transform-origin: 0 100%;
+    transform: translate3d(0, -100%, 0) rotate3d(1,0,0,90deg);
+}
+
+/*上面进上面出 picture box set*/
+.in-top .picBox{
+    animation-name: in-top;
+    animation-play-state: running;
+}
+.out-top .picBox{
+    animation-name: out-top;
+    animation-play-state: running;
+}
+
+/*上面进的动画*/
+@keyframes in-top {
+    from  {transform: rotate3d(0,0,0,0deg)}
+    to    {transform: rotate3d(-1,0,0,90deg)}
+}
+
+/*上面出的动画*/
+@keyframes out-top {
+    from {transform: rotate3d(-1,0,0,90deg)}
+    to   {transform: rotate3d(0,0,0,0deg)}
+}
+/*=E .in-top .out-top*/
+
+/*=S .in-right .out-right 设置属性，动画*/
+.in-right .hide,
+.out-right .hide {
+    transform-origin: 0 0;
+    transform: translate3d(100%, 0, 0) rotate3d(0,1,0,90deg);
+}
+.in-right .picBox{
+    animation-name: in-right;
+    animation-play-state: running;
+}
+.out-right .picBox{
+    animation-name: out-right;
+    animation-play-state: running;
+}
+@keyframes in-right {
+    from  {transform: rotate3d(0,0,0,0deg)}
+    to    {transform: rotate3d(0,-1,0,90deg)}
+}
+@keyframes out-right {
+    from  {transform: rotate3d(0,-1,0,90deg)}
+    to    {transform: rotate3d(0,0,0,0deg)}
+}
+/*=E .in-right .out-right*/
+
+/*=S .in-bottom .out-bottom 设置属性，动画*/
+.in-bottom .hide,
+.out-bottom .hide {
+    transform-origin: 0 0;
+    transform: translate3d(0, 100%, 0) rotate3d(-1,0,0,90deg);
+}
+.in-bottom .picBox{
+    animation-name: in-bottom;
+    animation-play-state: running;
+}
+.out-bottom .picBox{
+    animation-name: out-bottom;
+    animation-play-state: running;
+}
+@keyframes in-bottom {
+    from  {transform: rotate3d(0,0,0,0deg)}
+    to    {transform: rotate3d(1,0,0,90deg)}
+}
+@keyframes out-bottom {
+    from  {transform: rotate3d(1,0,0,90deg)}
+    to    {transform: rotate3d(0,0,0,0deg)}
+}
+/*=E .in-botton .out-bottom*/
+
+/*=S .in-left .out-left设置属性，动画*/
+.in-left .hide,
+.out-left .hide {
+    transform-origin: 100% 0;
+    transform: translate3d(-100%,0,0) rotate3d(0,-1,0,90deg);
+}
+@keyframes in-left {
+    from  {transform: rotate3d(0,0,0,0deg)}
+    to    {transform: rotate3d(0,1,0,90deg)}
+}
+@keyframes out-left {
+    from  {transform: rotate3d(0,1,0,90deg)}
+    to    {transform: rotate3d(0,0,0,0deg)}
+}
+.in-left .picBox{
+    animation-name: in-left;
+    animation-play-state: running;
+}
+.out-left .picBox{
+    animation-name: out-left;
+    animation-play-state: running;
+}
+/*=E .in-left .out-left*/
+
+
+
+
+
+
